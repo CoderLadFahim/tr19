@@ -10,4 +10,8 @@
 	padding: 0;
 	box-sizing: border-box;
 }
+
+body {
+	font-family: $regular-font;
+}
 </style>
