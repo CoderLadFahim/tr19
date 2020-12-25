@@ -1,0 +1,36 @@
+//////////// VARIABLES ////////////
+
+// font stack
+$regular-font: 'Nunito', Arial, Helvetica, sans-serif;
+$number-font: 'Montserrat', Arial, Helvetica, sans-serif;
+
+// COLORS
+$card-col: #273647;
+
+// gradient colors
+$gradient-start: #222f3e;
+$gradient-end: #081830;
+
+// data colors
+$purple: #9c88ff;
+$yellow: #fbc531;
+$green: #2ed573;
+$red: #ff3939;
+$blue: #00a8ff;
+
+// text colors
+$darkgrey: #c5c5c5;
+$grey: #dddce1;
+$navyblue: #192a56;
+
+// country status bar colors
+$evenchild-col: #273546;
+$oddchild-col: #2d3d4f;
+
+//////////// REUSABLE CLASSES ////////////
+.global-background {
+	background: rgba(39, 54, 71, 0.95);
+}
+.country-background {
+	background: rgba(39, 54, 71, 0.8);
+}
