@@ -1,7 +1,5 @@
 <template>
-	<div class="dashboard">
-		Bismillah
-	</div>
+	<div class="dashboard"></div>
 </template>
 
 <script>
