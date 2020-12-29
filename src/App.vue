@@ -15,7 +15,7 @@ export default {
 		...mapActions(['fetchData']),
 	},
 	created() {
-		this.$store.dispatch('fetchData');
+		this.fetchData();
 	},
 };
 </script>
@@ -37,5 +37,9 @@ body {
 	color: $grey;
 	font-family: $regular-font;
 	font-weight: 700;
+	margin-top: 25px;
+	.data {
+		font-family: $number-font;
+	}
 }
 </style>
