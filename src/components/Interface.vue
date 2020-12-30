@@ -24,13 +24,10 @@
 
 		<div class="result-display">
 			<div class="result-data">
-				<h5 class="data-type">
-					Sorting by: <span class="type">Recovery Rate By Total Infected</span>
+				<h5 class="filter-type">
+					Sorting by:
+					<span class="type"> Recovery Rate By Total Infected</span>
 				</h5>
-				<div class="result-order-btns">
-					<button class="ascending">Ascending</button>
-					<button class="descending">Descending</button>
-				</div>
 			</div>
 		</div>
 	</div>
@@ -42,19 +39,21 @@ export default {};
 
 <style lang="scss" scoped>
 .interface {
-	@include dimen(84vw, 60vh);
+	@include dimen(84vw, 66.5vh);
 	border: 1px solid #fff;
-	margin-top: 20px;
+	margin-top: 7px;
+	overflow: scroll;
 
 	.interface-title {
 		font-size: 0.875rem;
-		margin-bottom: 10px;
+		margin-bottom: 15px;
 	}
 
 	.interface-menu {
 		display: flex;
 		justify-content: space-between;
 		align-items: start;
+		margin-bottom: 20px;
 	}
 
 	.filter {
@@ -65,8 +64,7 @@ export default {};
 
 		.filter-menu {
 			border-radius: 10px;
-			background-color: $lightnavy;
-			// border: 1px solid $purple;
+			background-color: #fff;
 			display: flex;
 			justify-content: space-evenly;
 			align-items: center;
@@ -134,6 +132,25 @@ export default {};
 
 		&:focus {
 			outline: none;
+		}
+	}
+
+	.result-display {
+		.result-data {
+			display: flex;
+			align-items: start;
+			justify-content: space-between;
+		}
+
+		.filter-type {
+			font-size: 0.7rem;
+			text-align: center;
+
+			.type {
+				font-size: 0.75rem;
+				color: $purple;
+				white-space: nowrap;
+			}
 		}
 	}
 }
