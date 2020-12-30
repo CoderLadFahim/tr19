@@ -31,6 +31,7 @@
 				</li>
 			</ul>
 		</GlobalStatus>
+		<DashboardInterface />
 	</div>
 </template>
 
@@ -38,11 +39,13 @@
 import { mapGetters } from 'vuex';
 
 import Card from '@/components/Card';
+import Interface from '@/components/Interface';
 
 export default {
 	name: 'Dashboard',
 	components: {
 		GlobalStatus: Card,
+		DashboardInterface: Interface,
 	},
 	computed: {
 		...mapGetters(['getGlobalData']),
@@ -58,6 +61,11 @@ export default {
 	justify-content: center;
 	a.details-btn {
 		text-decoration: none;
+
+		&:hover {
+			transform: scale(1.05);
+			cursor: pointer;
+		}
 	}
 
 	.global-card {
@@ -67,16 +75,11 @@ export default {
 			right: -3px;
 			top: 106%;
 
-			&:hover {
-				transform: scale(1.05);
-				cursor: pointer;
-			}
-
 			button {
 				font: {
 					family: $regular-font;
 					weight: 900;
-					size: 0.6rem;
+					size: 0.5rem;
 				}
 				padding: 5px 10px;
 				border: none;
@@ -112,16 +115,24 @@ export default {
 		li:nth-child(1) {
 			grid-column-start: 1;
 			grid-column-end: 3;
+
+			h1 {
+				font-size: 2.25rem;
+			}
+
+			p {
+				font-size: 0.7rem;
+			}
 		}
 
 		li:nth-child(2),
 		li:nth-child(3) {
 			h1 {
-				font-size: 1.3rem;
+				font-size: 1.125rem;
 			}
 
 			p {
-				font-size: 0.75rem;
+				font-size: 0.625rem;
 			}
 		}
 

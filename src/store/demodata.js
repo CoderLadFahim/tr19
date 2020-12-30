@@ -2,9 +2,9 @@ export default {
 	Global: {
 		All: {
 			population: 7444509223,
-			confirmed: 79799931,
-			recovered: 44952187,
-			deaths: 1749312,
+			confirmed: 81925210,
+			recovered: 46277158,
+			deaths: 1787263,
 		},
 	},
 	Afghanistan: {
