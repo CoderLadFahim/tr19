@@ -16,10 +16,32 @@ export default createStore({
 			const data = state.c19Status.Global.All[type];
 			return formatData(data);
 		},
+		getCountryResults: state => {
+			return Object.values(state.c19Status)
+				.filter((result, i) => i !== 0)
+				.map(result => {
+					const resultData = { ...result };
+					for (const prop in resultData['All'])
+						typeof resultData['All'][prop] === 'number'
+							? (resultData['All'][prop] = formatData(resultData['All'][prop]))
+							: resultData['All'][prop];
+
+					return resultData;
+				});
+		},
 	},
 	mutations: {
 		SET_DATA(state, payload) {
-			state.c19Status = payload;
+			let data = payload;
+			const { Israel: Palestine } = data;
+
+			delete data.Israel;
+
+			Palestine.All.country = 'Palestine';
+			Palestine.All.abbreviation = 'PS';
+
+			data = { ...data, Palestine };
+			state.c19Status = data;
 		},
 	},
 	actions: {

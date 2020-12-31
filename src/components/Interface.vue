@@ -1,4 +1,10 @@
 <template>
+	<div class="guideline">
+		<h1>Remain Indoors</h1>
+		<p>
+			DO NOT LEAVE YOUR HOUSE UNLESS IT’S AN ABSOLUTE NECESSITY
+		</p>
+	</div>
 	<div class="interface">
 		<h4 class="interface-title">Dashboard:</h4>
 		<div class="interface-menu">
@@ -8,7 +14,7 @@
 					<div class="arrow-down"></div>
 				</div>
 				<ul class="filter-options">
-					<li class="option active">Cases, Recoveries & Deaths</li>
+					<li class="option active">Infections, Recoveries & Deaths</li>
 					<li class="option">Most Infected</li>
 					<li class="option">Most Recovered</li>
 					<li class="option">Most Deaths</li>
@@ -28,16 +34,70 @@
 					Sorting by:
 					<span class="type"> Recovery Rate By Total Infected</span>
 				</h5>
+
+				<div class="result-info-bar result-style">
+					<h4 class="country">Country</h4>
+					<ul class="results">
+						<li class="infected">Infected</li>
+						<li class="recovered">Recovered</li>
+						<li class="deaths">Deaths</li>
+					</ul>
+				</div>
 			</div>
+
+			<ul class="results">
+				<li
+					class="result-style"
+					v-for="result in countryResults"
+					:key="result.country"
+				>
+					<h4>
+						<img
+							:src="
+								`https://flagcdn.com/16x12/${result.abbreviation.toLowerCase()}.png`
+							"
+							:alt="result.country"
+						/>
+
+						{{ result.country }}
+					</h4>
+
+					<ul class="results">
+						<li class="infected">{{ result.confirmed }}</li>
+						<li class="recovered">{{ result.recovered }}</li>
+						<li class="deaths">{{ result.deaths }}</li>
+					</ul>
+				</li>
+			</ul>
 		</div>
+	</div>
+	<div class="guideline">
+		<h1>Wear Masks</h1>
+		<p>
+			WEAR A SURGICAL MASK IF YOU MUST LEAVE YOUR HOME
+		</p>
 	</div>
 </template>
 
 <script>
-export default {};
+import { mapGetters } from 'vuex';
+
+export default {
+	name: 'Interface',
+	computed: {
+		...mapGetters({ results: 'getCountryResults' }),
+		countryResults() {
+			return this.results.map((result, i) => result.All);
+		},
+	},
+};
 </script>
 
 <style lang="scss" scoped>
+.guideline {
+	display: none;
+}
+
 .interface {
 	@include dimen(84vw, 66.5vh);
 	border: 1px solid #fff;
@@ -138,18 +198,73 @@ export default {};
 	.result-display {
 		.result-data {
 			display: flex;
-			align-items: start;
-			justify-content: space-between;
+			flex-direction: column;
+			margin-bottom: 10px;
 		}
 
 		.filter-type {
 			font-size: 0.7rem;
-			text-align: center;
+			margin-bottom: 3px;
 
 			.type {
 				font-size: 0.75rem;
 				color: $purple;
 				white-space: nowrap;
+			}
+		}
+
+		.result-info-bar {
+			background-color: $lightnavy;
+
+			.country {
+				color: $grey;
+			}
+
+			.deaths {
+				margin: 0;
+			}
+		}
+
+		.result-style {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 7px 5px;
+			font-size: 0.7rem;
+			color: #fff;
+			text-align: left;
+
+			h4 img {
+				margin-right: 5px;
+			}
+
+			&:nth-child(odd) {
+				background-color: $oddchild-col;
+			}
+
+			&:nth-child(even) {
+				background-color: $evenchild-col;
+			}
+
+			.results {
+				display: flex;
+				li {
+					list-style: none;
+					font-size: 0.6rem;
+					margin: 0 15px;
+					font-weight: lighter;
+					text-align: right;
+				}
+
+				.infected {
+					color: $yellow;
+				}
+				.recovered {
+					color: $green;
+				}
+				.deaths {
+					color: $red;
+				}
 			}
 		}
 	}
