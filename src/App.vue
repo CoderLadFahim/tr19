@@ -1,6 +1,5 @@
 <template>
-	<h1 v-if="!c19Status">Loading Data...</h1>
-	<router-view v-else />
+	<router-view />
 </template>
 
 <script>
@@ -15,8 +14,8 @@ export default {
 	methods: {
 		...mapActions(['fetchData']),
 	},
-	beforeCreate() {
-		this.$store.dispatch('fetchData');
+	created() {
+		this.fetchData();
 	},
 };
 </script>
