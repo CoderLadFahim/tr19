@@ -127,6 +127,26 @@ export default {
 			updated: '2020/12/26 00:22:51+00',
 		},
 	},
+	'Saint Vincent and the Grenadines': {
+		All: {
+			confirmed: 121,
+			recovered: 98,
+			deaths: 0,
+			country: 'Saint Vincent and the Grenadines',
+			population: 109897,
+			sq_km_area: 388,
+			life_expectancy: '72.3',
+			elevation_in_meters: null,
+			continent: 'North America',
+			abbreviation: 'VC',
+			location: 'Caribbean',
+			iso: 670,
+			capital_city: 'Kingstown',
+			lat: '12.9843',
+			long: '-61.2872',
+			updated: '2021/01/01 07:23:12+00',
+		},
+	},
 	Argentina: {
 		All: {
 			confirmed: 1571680,

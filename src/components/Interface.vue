@@ -14,15 +14,16 @@
 					<div class="arrow-down"></div>
 				</div>
 				<ul class="filter-options">
-					<li class="option active">Infections, Recoveries & Deaths</li>
-					<li class="option">Most Infected</li>
-					<li class="option">Most Recovered</li>
-					<li class="option">Most Deaths</li>
-					<li class="option">Infection Rate</li>
-					<li class="option">Recovery Rate by Total Infected</li>
-					<li class="option">Recovery Rate by Population</li>
-					<li class="option">Death Rate by Total Infected</li>
-					<li class="option">Death Rate by Population</li>
+					<li
+						v-for="filter in filters"
+						:key="filter.ID"
+						:data-filterID="filter.ID"
+						class="option"
+						:class="{ active: filter.ID === activeFilter }"
+						@click="activeFilter = filter.ID"
+					>
+						{{ filter.name }}
+					</li>
 				</ul>
 			</div>
 			<input type="text" class="search-bar" placeholder="Search Country" />
@@ -32,7 +33,9 @@
 			<div class="result-data">
 				<h5 class="filter-type">
 					Sorting by:
-					<span class="type"> Recovery Rate By Total Infected</span>
+					<span class="type">
+						{{ getActiveFilterName(activeFilter) }}
+					</span>
 				</h5>
 
 				<div class="result-info-bar result-style">
@@ -45,14 +48,15 @@
 				</div>
 			</div>
 
-			<ul class="results">
+			<ul class="country-results">
 				<li
 					class="result-style"
 					v-for="result in countryResults"
 					:key="result.country"
 				>
-					<h4>
+					<h4 :class="{ adjustFont: result.country.length >= 19 }">
 						<img
+							v-if="result.abbreviation"
 							:src="
 								`https://flagcdn.com/16x12/${result.abbreviation.toLowerCase()}.png`
 							"
@@ -63,9 +67,9 @@
 					</h4>
 
 					<ul class="results">
-						<li class="infected">{{ result.confirmed }}</li>
-						<li class="recovered">{{ result.recovered }}</li>
-						<li class="deaths">{{ result.deaths }}</li>
+						<li class="infected data">{{ result.confirmed }}</li>
+						<li class="recovered data">{{ result.recovered }}</li>
+						<li class="deaths data">{{ result.deaths }}</li>
 					</ul>
 				</li>
 			</ul>
@@ -84,11 +88,23 @@ import { mapGetters } from 'vuex';
 
 export default {
 	name: 'Interface',
+	data: () => ({
+		activeFilter: 'IRD',
+		dataReady: false,
+	}),
+	methods: {
+		getActiveFilterName(filterID) {
+			return this.filters.find(filter => filter.ID === filterID).name;
+		},
+	},
 	computed: {
-		...mapGetters({ results: 'getCountryResults' }),
+		...mapGetters({ results: 'getCountryResults', filters: 'getFilters' }),
 		countryResults() {
 			return this.results.map((result, i) => result.All);
 		},
+	},
+	mounted() {
+		console.log();
 	},
 };
 </script>
@@ -98,11 +114,14 @@ export default {
 	display: none;
 }
 
+.adjustFont {
+	font-size: 0.6rem !important;
+}
+
 .interface {
 	@include dimen(84vw, 66.5vh);
-	border: 1px solid #fff;
+	// border: 1px solid #fff;
 	margin-top: 7px;
-	overflow: scroll;
 
 	.interface-title {
 		font-size: 0.875rem;
@@ -218,24 +237,38 @@ export default {
 
 			.country {
 				color: $grey;
+				font-size: 0.75rem;
 			}
+		}
 
-			.deaths {
-				margin: 0;
-			}
+		.country-results {
+			// border: 1px solid #fff;
+			max-height: 45vh;
+			overflow: scroll;
 		}
 
 		.result-style {
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
-			padding: 7px 5px;
+			padding: 7px 10px;
 			font-size: 0.7rem;
 			color: #fff;
 			text-align: left;
 
-			h4 img {
-				margin-right: 5px;
+			& > * {
+				// border: 0.1px dotted $grey;
+			}
+
+			h4 {
+				display: flex;
+				align-items: center;
+				font-size: 0.875rem;
+				width: 32%;
+
+				img {
+					margin-right: 8px;
+				}
 			}
 
 			&:nth-child(odd) {
@@ -248,11 +281,18 @@ export default {
 
 			.results {
 				display: flex;
+				width: 53%;
+				align-items: center;
+				justify-content: space-between;
 				li {
 					list-style: none;
-					font-size: 0.6rem;
-					margin: 0 15px;
+					font-size: 0.5625rem;
 					font-weight: lighter;
+					text-align: right;
+				}
+
+				.data {
+					font-weight: bold;
 					text-align: right;
 				}
 

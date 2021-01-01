@@ -9,6 +9,44 @@ const formatData = num => num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 export default createStore({
 	state: {
 		c19Status: null,
+		dataFilters: [
+			{
+				name: 'Infections, Recoveries & Deaths',
+				ID: 'IRD',
+			},
+			{
+				name: 'Most Infected',
+				ID: 'MI',
+			},
+			{
+				name: 'Most Recovered',
+				ID: 'MR',
+			},
+			{
+				name: 'Most Deaths',
+				ID: 'MD',
+			},
+			{
+				name: 'Infection Rate',
+				ID: 'IR',
+			},
+			{
+				name: 'Recovery Rate by Total Infected',
+				ID: 'RRI',
+			},
+			{
+				name: 'Recovery Rate by Population',
+				ID: 'RRP',
+			},
+			{
+				name: 'Death Rate by Total Infected',
+				ID: 'DRI',
+			},
+			{
+				name: 'Death Rate by Population',
+				ID: 'DRP',
+			},
+		],
 	},
 	getters: {
 		// this is used on the dashboard global status card
@@ -17,8 +55,8 @@ export default createStore({
 			return formatData(data);
 		},
 		getCountryResults: state => {
-			return Object.values(state.c19Status)
-				.filter((result, i) => i !== 0)
+			const countryResults = Object.values(state.c19Status)
+				.filter((result, i) => i && result['All'].country)
 				.map(result => {
 					const resultData = { ...result };
 					for (const prop in resultData['All'])
@@ -28,7 +66,10 @@ export default createStore({
 
 					return resultData;
 				});
+
+			return countryResults;
 		},
+		getFilters: state => state.dataFilters,
 	},
 	mutations: {
 		SET_DATA(state, payload) {
