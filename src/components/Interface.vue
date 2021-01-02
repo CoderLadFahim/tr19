@@ -8,7 +8,7 @@
 	<div class="interface">
 		<h4 class="interface-title">Dashboard:</h4>
 		<div class="interface-menu">
-			<Filter />
+			<Filter @filter-change="handleFilterChange" />
 			<input type="text" class="search-bar" placeholder="Search Country" />
 		</div>
 	</div>
@@ -32,10 +32,18 @@ export default {
 		Guideline,
 		Filter,
 	},
+	data: () => ({
+		filterMethod: 'IRD',
+	}),
 	computed: {
 		...mapGetters({ results: 'getCountryResults' }),
 		countryResults() {
 			return this.results.map((result, i) => result.All);
+		},
+	},
+	methods: {
+		handleFilterChange(newFilter) {
+			this.filterMethod = newFilter;
 		},
 	},
 };
