@@ -1,5 +1,5 @@
 <template>
-	<div class="result-info-bar result-style">
+	<div v-if="!rankMode" class="result-info-bar">
 		<h4 class="country">Country</h4>
 		<ul class="results">
 			<li class="infected">Infected</li>
@@ -15,9 +15,14 @@ export default {
 	props: {
 		countryData: {
 			type: Object,
-			required: True,
+		},
+		rankType: {
+			type: String,
 		},
 	},
+	data: () => ({
+		rankMode: false,
+	}),
 };
 </script>
 

@@ -1,36 +1,35 @@
 <template>
 	<div class="dashboard">
-		<GlobalStatus class="global-card">
-			<router-link to="/details" class="details-btn">
-				<button>
-					<span class="btn-text">In-Depth Details</span>
-					<span class="right-arrow"></span>
-				</button>
-			</router-link>
+		<router-link to="/details" class="global-details-link">
+			<GlobalStatus class="global-card">
+				<div class="location-data">
+					<h1 class="location">Global</h1>
+					<p class="population">
+						Population:
+						<span class="data"> {{ getGlobalData('population') }} </span>
+					</p>
+				</div>
 
-			<div class="location-data">
-				<h1 class="location">Global</h1>
-				<p class="population">
-					Population:
-					<span class="data"> {{ getGlobalData('population') }} </span>
-				</p>
-			</div>
-
-			<ul class="global-status">
-				<li class="data-field infection-data">
-					<h1 class="data total-infected">{{ getGlobalData('confirmed') }}</h1>
-					<p class="data-info">Infected Globally</p>
-				</li>
-				<li class="data-field recovery-data">
-					<h1 class="data total-recovered">{{ getGlobalData('recovered') }}</h1>
-					<p class="data-info">Gobal Recoveries</p>
-				</li>
-				<li class="data-field death-data">
-					<h1 class="data total-deaths">{{ getGlobalData('deaths') }}</h1>
-					<p class="data-info">Deaths Worldwide</p>
-				</li>
-			</ul>
-		</GlobalStatus>
+				<ul class="global-status">
+					<li class="data-field infection-data">
+						<h1 class="data total-infected">
+							{{ getGlobalData('confirmed') }}
+						</h1>
+						<p class="data-info">Infected Globally</p>
+					</li>
+					<li class="data-field recovery-data">
+						<h1 class="data total-recovered">
+							{{ getGlobalData('recovered') }}
+						</h1>
+						<p class="data-info">Gobal Recoveries</p>
+					</li>
+					<li class="data-field death-data">
+						<h1 class="data total-deaths">{{ getGlobalData('deaths') }}</h1>
+						<p class="data-info">Deaths Worldwide</p>
+					</li>
+				</ul>
+			</GlobalStatus>
+		</router-link>
 		<DashboardInterface />
 	</div>
 </template>
@@ -59,46 +58,16 @@ export default {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	a.details-btn {
+	a.global-details-link {
 		text-decoration: none;
 
 		&:hover {
-			transform: scale(1.05);
 			cursor: pointer;
 		}
 	}
 
 	.global-card {
 		position: relative;
-		.details-btn {
-			position: absolute;
-			right: -3px;
-			top: 106%;
-
-			button {
-				font: {
-					family: $regular-font;
-					weight: 900;
-					size: 0.5rem;
-				}
-				padding: 5px 10px;
-				border: none;
-				border-radius: 20px;
-				display: flex;
-				justify-content: space-between;
-				align-items: center;
-				box-sizing: content-box;
-
-				.btn-text {
-					display: block;
-					margin-right: 15px;
-				}
-
-				.right-arrow {
-					@include arrow('right', 0.5);
-				}
-			}
-		}
 
 		.location-data {
 			display: none;
@@ -150,11 +119,6 @@ export default {
 
 @media only screen and (min-width: 414px) {
 	.dashboard {
-		.global-card .details-btn button {
-			font-size: 0.7rem;
-			padding: 7px 12px;
-		}
-
 		.global-status {
 			li:nth-child(1) {
 				h1 {
@@ -210,15 +174,21 @@ export default {
 }
 
 @media only screen and (min-width: 768px) {
-	.dashboard .global-status {
-		li:nth-child(2),
-		li:nth-child(3) {
-			h1 {
-				font-size: 2.5rem;
-			}
+	.dashboard {
+		.global-card {
+			width: 90vw;
+		}
 
-			p {
-				font-size: 1.5rem;
+		.global-status {
+			li:nth-child(2),
+			li:nth-child(3) {
+				h1 {
+					font-size: 2.5rem;
+				}
+
+				p {
+					font-size: 1.5rem;
+				}
 			}
 		}
 	}
@@ -226,10 +196,6 @@ export default {
 
 @media only screen and (min-width: 800px) {
 	.dashboard {
-		.global-card .details-btn button {
-			font-size: 0.8rem;
-		}
-
 		.global-status {
 			li:nth-child(1) {
 				h1 {
@@ -256,19 +222,6 @@ export default {
 
 @media only screen and (min-width: 1024px) {
 	.dashboard {
-		.global-card .details-btn button {
-			font-size: 1rem;
-			padding: 15px 20px;
-
-			.btn-text {
-				margin-right: 35px;
-			}
-
-			.right-arrow {
-				@include arrow('right', 1);
-			}
-		}
-
 		.global-status {
 			li:nth-child(2),
 			li:nth-child(3) {
@@ -308,25 +261,6 @@ export default {
 					}
 				}
 			}
-
-			.details-btn {
-				top: 10px;
-				right: 10px;
-				button {
-					padding: 10px 15px;
-					font-size: 0.7rem;
-					border-radius: 10px;
-					.btn-text {
-						margin-right: 20px;
-						position: relative;
-						top: 1px;
-					}
-
-					.right-arrow {
-						@include arrow('right', 0.7);
-					}
-				}
-			}
 		}
 
 		.global-status {
@@ -346,24 +280,13 @@ export default {
 				font-size: 1.5rem;
 			}
 		}
-
-		.details-btn {
-			top: 40px;
-			right: 50px;
-		}
 	}
 }
 
 @media only screen and (min-width: 1366px) {
 	.dashboard {
-		.global-card {
-			.details-btn .btn-text {
-				font-size: 1rem;
-			}
-
-			.location-data .population {
-				font-size: 1.5rem;
-			}
+		.global-card .location-data .population {
+			font-size: 1.5rem;
 		}
 	}
 }

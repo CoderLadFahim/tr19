@@ -11,6 +11,8 @@
 			<Filter @filter-change="handleFilterChange" />
 			<input type="text" class="search-bar" placeholder="Search Country" />
 		</div>
+
+		<div class="results"></div>
 	</div>
 
 	<Guideline
@@ -33,7 +35,7 @@ export default {
 		Filter,
 	},
 	data: () => ({
-		filterMethod: 'IRD',
+		filterMethod: '',
 	}),
 	computed: {
 		...mapGetters({ results: 'getCountryResults' }),
@@ -52,8 +54,8 @@ export default {
 <style lang="scss" scoped>
 .interface {
 	@include dimen(84vw, 66.5vh);
-	border: 1px solid #fff;
-	margin-top: 7px;
+	// border: 1px solid #fff;
+	margin-top: 15px;
 	overflow: scroll;
 
 	.interface-title {
@@ -69,18 +71,55 @@ export default {
 	}
 
 	.search-bar {
-		color: $grey;
+		color: $purple;
 		background-color: $lightnavy;
 		border-radius: 10px;
 		border: none;
 		font-family: $regular-font;
 		font-weight: bold;
-		font-size: 13.28px;
+		font-size: 0.83rem;
 		padding: 5px 10px;
 		width: 65%;
 
 		&:focus {
 			outline: none;
+		}
+	}
+}
+
+@media only screen and (min-width: 600px) {
+	.interface {
+		margin-top: 20px;
+
+		.interface-title {
+			font-size: 1rem;
+		}
+
+		.search-bar {
+			font-size: 1.2rem;
+			padding: 7px 10px;
+		}
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	.interface {
+		margin-top: 30px;
+		width: 90vw;
+	}
+}
+
+@media only screen and (min-width: 1024px) {
+	.interface {
+		margin-top: 60px;
+
+		.interface-title {
+			font-size: 1.5rem;
+		}
+
+		.search-bar {
+			font-size: 1.7rem;
+			padding: 10px 15px;
 		}
 	}
 }

@@ -8,9 +8,9 @@
 			<li
 				v-for="filter in filters"
 				:key="filter.ID"
-				class="option"
 				:class="{ active: activeFilter === filter.ID }"
 				@click="handleClick($event, filter.ID)"
+				class="option"
 			>
 				{{ filter.name }}
 			</li>
@@ -81,6 +81,7 @@ export default {
 		min-width: 100%;
 		padding: 5px 0;
 		color: $purple;
+		cursor: pointer;
 
 		.arrow-down {
 			@include dimen(0);
@@ -115,6 +116,56 @@ export default {
 			&.active {
 				background-color: $purple;
 				color: #fff;
+			}
+		}
+	}
+}
+
+@media only screen and (min-width: 600px) {
+	.filter {
+		.filter-menu {
+			padding: 7px 0;
+
+			h5 {
+				font-size: 1.2rem;
+			}
+
+			.arrow-down {
+				border-width: 10px;
+			}
+		}
+
+		.filter-options {
+			top: 55px;
+
+			.option {
+				font-size: 1rem;
+				padding: 15px;
+			}
+		}
+	}
+}
+
+@media only screen and (min-width: 1024px) {
+	.filter {
+		.filter-menu {
+			padding: 10px 0;
+
+			h5 {
+				font-size: 1.7rem;
+			}
+
+			.arrow-down {
+				border-width: 15px;
+			}
+		}
+
+		.filter-options {
+			top: 80px;
+
+			.option {
+				font-size: 1.5rem;
+				padding: 20px;
 			}
 		}
 	}
