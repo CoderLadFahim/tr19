@@ -170,4 +170,74 @@ export default {
 		}
 	}
 }
+
+@media only screen and (min-width: 1280px) {
+	.filter {
+		width: 20%;
+		.filter-menu {
+			padding: 5px 0;
+			h5 {
+				font-size: 1rem;
+			}
+
+			.arrow-down {
+				border-width: 8px;
+			}
+		}
+
+		.filter-options {
+			top: 45px;
+			width: 20vw;
+		}
+
+		.filter-options .option {
+			font-size: 0.8rem;
+			padding: 10px;
+		}
+	}
+}
+
+@media only screen and (min-width: 1440px) {
+	.filter {
+		width: 15%;
+	}
+}
+
+@media only screen and (min-width: 1600px) {
+	.filter {
+		// width: 20%;
+
+		.filter-menu {
+			padding: 6px 0;
+
+			h5 {
+				font-size: 1.2rem;
+			}
+		}
+
+		.filter-options {
+			top: 55px;
+
+			.option {
+				font-size: 1rem;
+			}
+		}
+	}
+}
+
+@media only screen and (min-width: 1920px) {
+	.filter .filter-options .option {
+		padding: 15px;
+	}
+}
+
+@media only screen and (max-height: 625px) {
+	.filter {
+		width: 15%;
+
+		.filter-menu h5 {
+			font-size: 1rem;
+		}
+	}
+}
 </style>

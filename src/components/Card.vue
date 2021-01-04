@@ -73,12 +73,12 @@ export default {};
 
 @media only screen and (min-width: 1280px) {
 	.card {
-		width: 95vw !important;
+		width: 95vw;
 	}
 }
 @media only screen and (min-width: 1366px) {
 	.card {
-		height: 35vh !important;
+		height: 35vh;
 	}
 }
 </style>

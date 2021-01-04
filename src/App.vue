@@ -42,4 +42,10 @@ body {
 		font-family: $number-font;
 	}
 }
+
+@media only screen and (max-height: 625px) {
+	body {
+		margin-top: 10px;
+	}
+}
 </style>

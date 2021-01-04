@@ -1,15 +1,7 @@
 <template>
 	<div class="dashboard">
-		<router-link to="/details" class="global-details-link">
+		<router-link :to="{ name: 'Details' }" class="global-details-link">
 			<GlobalStatus class="global-card">
-				<div class="location-data">
-					<h1 class="location">Global</h1>
-					<p class="population">
-						Population:
-						<span class="data"> {{ getGlobalData('population') }} </span>
-					</p>
-				</div>
-
 				<ul class="global-status">
 					<li class="data-field infection-data">
 						<h1 class="data total-infected">
@@ -68,10 +60,6 @@ export default {
 
 	.global-card {
 		position: relative;
-
-		.location-data {
-			display: none;
-		}
 	}
 
 	.global-status {
@@ -239,28 +227,15 @@ export default {
 
 @media only screen and (min-width: 1280px) {
 	.dashboard {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+
 		.global-card {
 			display: flex;
 			flex-direction: column;
 			justify-content: space-around;
-
-			.location-data {
-				display: block;
-				text-align: center;
-				.location {
-					font-size: 2rem;
-					font-weight: bold;
-					color: #ffffff;
-				}
-
-				.population {
-					color: $grey;
-
-					span.data {
-						color: $purple;
-					}
-				}
-			}
+			width: 95vw;
 		}
 
 		.global-status {
@@ -272,7 +247,7 @@ export default {
 				flex: 1;
 
 				h1.data {
-					font-size: 2rem;
+					font-size: 2.5rem;
 				}
 			}
 
@@ -283,10 +258,42 @@ export default {
 	}
 }
 
-@media only screen and (min-width: 1366px) {
-	.dashboard {
-		.global-card .location-data .population {
-			font-size: 1.5rem;
+@media only screen and (min-width: 1440px) {
+	.dashboard .global-status .data-field {
+		h1.data {
+			font-size: 2.7rem;
+		}
+
+		.data-info {
+			font-size: 1.7rem;
+		}
+	}
+}
+
+@media only screen and (min-width: 1920px) {
+	.dashboard .global-status .data-field {
+		h1.data {
+			font-size: 3.5rem;
+		}
+
+		.data-info {
+			font-size: 2rem;
+		}
+	}
+}
+
+@media only screen and (max-height: 625px) {
+	.dashboard .global-card {
+		height: 25vh;
+	}
+
+	.dashboard .global-status .data-field {
+		h1.data {
+			font-size: 2rem;
+		}
+
+		.data-info {
+			font-size: 1rem;
 		}
 	}
 }

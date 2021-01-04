@@ -53,14 +53,14 @@ export default {
 
 <style lang="scss" scoped>
 .interface {
-	@include dimen(84vw, 66.5vh);
-	// border: 1px solid #fff;
+	@include dimen(84vw, 65vh);
+	// border: 0.1px solid #fff;
 	margin-top: 15px;
 	overflow: scroll;
 
 	.interface-title {
 		font-size: 0.875rem;
-		margin-bottom: 15px;
+		margin-bottom: 5px;
 	}
 
 	.interface-menu {
@@ -71,12 +71,12 @@ export default {
 	}
 
 	.search-bar {
-		color: $purple;
+		color: #fff;
 		background-color: $lightnavy;
 		border-radius: 10px;
 		border: none;
 		font-family: $regular-font;
-		font-weight: bold;
+		font-weight: 300;
 		font-size: 0.83rem;
 		padding: 5px 10px;
 		width: 65%;
@@ -90,9 +90,11 @@ export default {
 @media only screen and (min-width: 600px) {
 	.interface {
 		margin-top: 20px;
+		height: 68vh;
 
 		.interface-title {
 			font-size: 1rem;
+			margin-bottom: 10px;
 		}
 
 		.search-bar {
@@ -121,6 +123,45 @@ export default {
 			font-size: 1.7rem;
 			padding: 10px 15px;
 		}
+	}
+}
+
+@media only screen and (min-width: 1280px) {
+	.interface {
+		@include dimen(50vw, 70vh);
+		margin-top: 30px;
+		$margin: 30px;
+		margin: {
+			left: $margin;
+			right: $margin;
+		}
+		overflow: hidden;
+
+		.interface-title {
+			display: none;
+		}
+
+		.search-bar {
+			font-size: 1rem;
+			padding: 5px 10px;
+			width: 65%;
+		}
+	}
+}
+
+@media only screen and (min-width: 1280px) {
+	.interface .search-bar {
+		font-size: 1.2rem;
+	}
+}
+
+@media only screen and (max-height: 625px) {
+	.interface {
+		margin-top: 20px;
+	}
+
+	.interface .search-bar {
+		font-size: 1rem;
 	}
 }
 </style>
