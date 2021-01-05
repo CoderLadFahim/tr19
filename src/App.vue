@@ -1,5 +1,5 @@
 <template>
-	<loader v-if="true" />
+	<loader v-if="!c19Status" />
 	<router-view v-else />
 </template>
 
