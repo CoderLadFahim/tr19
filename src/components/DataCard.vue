@@ -11,18 +11,7 @@
 
 <script>
 export default {
-	name: Result,
-	props: {
-		countryData: {
-			type: Object,
-		},
-		rankType: {
-			type: String,
-		},
-	},
-	data: () => ({
-		rankMode: false,
-	}),
+	name: DataCard,
 };
 </script>
 
