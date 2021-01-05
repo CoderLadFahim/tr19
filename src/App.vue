@@ -1,13 +1,20 @@
 <template>
-	<router-view />
+	<loader v-if="true" />
+	<router-view v-else />
 </template>
 
 <script>
+import LoaderScreen from './components/LoadingScreen';
+
 import { mapActions } from 'vuex';
 import { mapState } from 'vuex';
+import LoadingScreen from './components/LoadingScreen';
 
 export default {
 	name: 'App',
+	components: {
+		loader: LoadingScreen,
+	},
 	computed: {
 		...mapState(['c19Status']),
 	},
@@ -15,7 +22,8 @@ export default {
 		...mapActions(['fetchData']),
 	},
 	created() {
-		this.fetchData();
+		this.$store.dispatch('fetchData');
+		// !this.c19Status ? document.body.classList.add('addMargin') : '';
 	},
 };
 </script>
