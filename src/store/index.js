@@ -18,7 +18,7 @@ export default createStore({
 		},
 		getCountryResults: state => {
 			return Object.values(state.c19Status)
-				.filter((result, i) => i !== 0)
+				.filter((result, i) => i && result.All.country)
 				.map(result => {
 					const resultData = { ...result };
 					for (const prop in resultData['All'])
@@ -46,7 +46,7 @@ export default createStore({
 	},
 	actions: {
 		fetchData(context) {
-			const appInProduction = false;
+			const appInProduction = true;
 			if (appInProduction) {
 				fetch(cors + apiEndpoint)
 					.then(res => res.json())

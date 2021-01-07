@@ -12,7 +12,7 @@
 			<input type="text" class="search-bar" placeholder="Search Country" />
 		</div>
 
-		<div class="results"></div>
+		<DataDisplay :activeFilter="filterMethod" />
 	</div>
 
 	<Guideline
@@ -27,16 +27,20 @@
 import { mapGetters } from 'vuex';
 import Guideline from '@/components/Guideline';
 import Filter from '@/components/Filter';
+import DataDisplay from '@/components/DataDisplay/DataDisplay';
 
 export default {
 	name: 'Interface',
 	components: {
 		Guideline,
 		Filter,
+		DataDisplay,
 	},
-	data: () => ({
-		filterMethod: '',
-	}),
+	data() {
+		return {
+			filterMethod: {},
+		};
+	},
 	computed: {
 		...mapGetters({ results: 'getCountryResults' }),
 		countryResults() {
@@ -56,7 +60,6 @@ export default {
 	@include dimen(84vw, 65vh);
 	// border: 0.1px solid #fff;
 	margin-top: 15px;
-	overflow: scroll;
 
 	.interface-title {
 		font-size: 0.875rem;
@@ -67,7 +70,7 @@ export default {
 		display: flex;
 		justify-content: space-between;
 		align-items: start;
-		margin-bottom: 20px;
+		margin-bottom: 15px;
 	}
 
 	.search-bar {

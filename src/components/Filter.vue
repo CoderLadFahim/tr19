@@ -27,11 +27,11 @@ export default {
 			{ name: 'Most Infected', ID: 'MI' },
 			{ name: 'Most Recovered', ID: 'MR' },
 			{ name: 'Most Deaths', ID: 'MD' },
-			{ name: 'Infection Rate', ID: 'IR' },
-			{ name: 'Recovery Rate by Total Infected', ID: 'RRI' },
-			{ name: 'Recovery Rate by Population', ID: 'RRP' },
-			{ name: 'Death Rate by Total Infected', ID: 'DRI' },
-			{ name: 'Death Rate by Population', ID: 'DRP' },
+			{ name: 'Infection Rates', ID: 'IR' },
+			{ name: 'Recovery Rates by Total Infected', ID: 'RRI' },
+			{ name: 'Recovery Rates by Population', ID: 'RRP' },
+			{ name: 'Death Rates by Total Infected', ID: 'DRI' },
+			{ name: 'Death Rates by Population', ID: 'DRP' },
 		],
 		activeFilter: 'IRD',
 	}),
@@ -51,7 +51,10 @@ export default {
 			}, 100);
 		},
 		emitFilterType() {
-			this.$emit('filter-change', this.activeFilter);
+			this.$emit(
+				'filter-change',
+				this.filters.find(filter => filter.ID === this.activeFilter)
+			);
 		},
 	},
 	mounted() {
