@@ -7,50 +7,22 @@
 					{{ activeFilter.name }}
 				</span>
 			</p>
-
-			<div class="venue-data indicator">
-				<p class="country">Country</p>
-				<ul class="numbers">
-					<li class="infected">Infected</li>
-					<li class="recovered">Recovered</li>
-					<li class="deaths">Deaths</li>
-				</ul>
-			</div>
+			<OverallDataCard />
 		</div>
 
-		<ul class="venues">
-			<li
+		<div class="venues">
+			<OverallDataCard
 				v-for="c19Data in c19All"
 				:key="c19Data.All.country"
-				class="venue-data"
-			>
-				<p class="country">
-					<img
-						v-if="c19Data.All.abbreviation"
-						:src="
-							`https://flagcdn.com/16x12/${c19Data.All.abbreviation.toLowerCase()}.png`
-						"
-						:alt="c19Data.All.country"
-					/>
-					{{ c19Data.All.country }}
-				</p>
-				<ul class="numbers">
-					<li class="infected data">
-						{{ c19Data.All.confirmed }}
-					</li>
-					<li class="recovered data">
-						{{ c19Data.All.recovered }}
-					</li>
-					<li class="deaths data">
-						{{ c19Data.All.deaths }}
-					</li>
-				</ul>
-			</li>
-		</ul>
+				:c19Data="c19Data.All"
+				@click="redirect(c19Data.All)"
+			/>
+		</div>
 	</div>
 </template>
 
 <script>
+import OverallDataCard from './OverallDataCard';
 import { mapGetters } from 'vuex';
 
 export default {
@@ -61,6 +33,14 @@ export default {
 			required: true,
 		},
 	},
+	components: {
+		OverallDataCard,
+	},
+	methods: {
+		redirect(country) {
+			this.$router.push('/details');
+		},
+	},
 	computed: {
 		...mapGetters({
 			c19All: 'getCountryResults',
@@ -69,7 +49,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .data-display {
 	// border: 0.1px solid #fff;
 	.indicators p {
