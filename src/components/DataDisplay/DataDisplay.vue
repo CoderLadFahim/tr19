@@ -38,7 +38,18 @@ export default {
 	},
 	methods: {
 		redirect(country) {
-			this.$router.push('/details');
+			let { country: countryName } = country;
+			countryName = countryName
+				.toLowerCase()
+				.split(' ')
+				.join('_');
+
+			this.$router.push({
+				name: 'Details',
+				params: {
+					country_name: countryName,
+				},
+			});
 		},
 	},
 	computed: {

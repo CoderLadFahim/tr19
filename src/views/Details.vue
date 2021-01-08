@@ -1,9 +1,18 @@
 <template>
-	This is the details component
+	<h1>
+		{{ country_name }}
+	</h1>
 </template>
 
 <script>
-export default {};
+export default {
+	name: 'Details',
+	props: {
+		country_name: {
+			type: String,
+		},
+	},
+};
 </script>
 
 <style></style>
