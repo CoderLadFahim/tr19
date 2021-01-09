@@ -60,11 +60,14 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .data-display {
+	::-webkit-scrollbar {
+		display: none;
+	}
 	// border: 0.1px solid #fff;
 	.indicators p {
-		font-size: 0.625rem;
+		font-size: 0.725rem;
 	}
 
 	.active-filter {
@@ -73,7 +76,7 @@ export default {
 
 	.venues {
 		margin-top: 10px;
-		border: 0.1px solid goldenrod;
+		// border: 0.1px solid goldenrod;
 		height: 44.9vh;
 		overflow-y: scroll;
 		display: flex;
@@ -82,60 +85,93 @@ export default {
 	}
 }
 
-.venue-data.indicator {
-	min-height: 30px;
-
-	li {
-		font-size: 0.56rem;
+@media only screen and (min-width: 360px) {
+	.data-display .venues {
+		height: 45vh;
 	}
-
-	background-color: $lightnavy;
 }
 
-.venue-data {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 0 7px;
-	min-height: 40px;
-	color: #fff;
-	font-size: 0.75rem;
-
-	.country {
-		display: flex;
-		align-items: center;
+@media only screen and (min-width: 375px) {
+	.data-display .venues {
+		height: 46vh;
 	}
+}
 
-	img {
-		margin-right: 10px;
+@media only screen and (min-width: 414px) {
+	.data-display .venues {
+		height: 48vh;
 	}
+}
 
-	& > * {
-		flex-basis: 50%;
+@media only screen and (min-width: 600px) {
+	.data-display .venues {
+		height: 49vh;
 	}
+}
 
-	&:nth-child(odd) {
-		background-color: $oddchild-col;
-	}
-	&:nth-child(even) {
-		background-color: $evenchild-col;
-	}
-
-	.numbers {
-		display: flex;
-		justify-content: space-between;
-		list-style: none;
-		font-size: 0.6rem;
-
-		.infected {
-			color: $yellow;
+@media only screen and (min-width: 768px) {
+	.data-display {
+		.indicators p {
+			font-size: 1rem;
 		}
-		.recovered {
-			color: $green;
+
+		.venues {
+			height: 47vh;
 		}
-		.deaths {
-			color: $red;
-		}
+	}
+}
+
+@media only screen and (min-width: 800px) {
+	.data-display .venues {
+		height: 52vh;
+	}
+}
+
+@media only screen and (min-width: 1024px) {
+	.data-display .venues {
+		height: 50vh;
+	}
+}
+
+@media only screen and (min-width: 1280px) {
+	.data-display .venues {
+		height: 46vh;
+	}
+}
+
+@media only screen and (min-width: 1280px) and (max-height: 720px) {
+	.data-display .venues {
+		height: 43vh;
+	}
+}
+
+@media only screen and (min-width: 1366px) {
+	.data-display .venues {
+		height: 40vh;
+	}
+}
+
+@media only screen and (min-width: 1440px) {
+	.data-display .venues {
+		height: 44vh;
+	}
+}
+
+@media only screen and (min-width: 1536px) {
+	.data-display .venues {
+		height: 43vh;
+	}
+}
+
+@media only screen and (min-width: 1920px) {
+	.data-display .venues {
+		height: 47vh;
+	}
+}
+
+@media only screen and (min-width: 1366px) and (max-height: 625px) {
+	.data-display .venues {
+		height: 49vh;
 	}
 }
 </style>

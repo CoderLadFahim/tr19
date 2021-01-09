@@ -282,7 +282,7 @@ export default {
 	}
 }
 
-@media only screen and (max-height: 625px) {
+@media only screen and (min-width: 1366px) and (max-height: 625px) {
 	.dashboard .global-card {
 		height: 25vh;
 	}
@@ -293,7 +293,7 @@ export default {
 		}
 
 		.data-info {
-			font-size: 1rem;
+			font-size: 0.85rem;
 		}
 	}
 }

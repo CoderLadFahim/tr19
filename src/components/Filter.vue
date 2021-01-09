@@ -105,6 +105,7 @@ export default {
 		width: 50vw;
 		border-radius: 10px;
 		overflow: hidden;
+		z-index: 99;
 		transition: 50ms;
 
 		.option {
@@ -234,7 +235,7 @@ export default {
 	}
 }
 
-@media only screen and (max-height: 625px) {
+@media only screen and (min-width: 1366px) and (max-height: 625px) {
 	.filter {
 		width: 15%;
 

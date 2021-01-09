@@ -46,7 +46,7 @@ export default createStore({
 	},
 	actions: {
 		fetchData(context) {
-			const appInProduction = false;
+			const appInProduction = true;
 			if (appInProduction) {
 				fetch(cors + apiEndpoint)
 					.then(res => res.json())

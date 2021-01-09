@@ -51,7 +51,7 @@ body {
 	}
 }
 
-@media only screen and (max-height: 625px) {
+@media only screen and (min-width: 1366px) and (max-height: 625px) {
 	body {
 		margin-top: 10px;
 	}

@@ -111,12 +111,16 @@ export default {
 	.interface {
 		margin-top: 30px;
 		width: 90vw;
+
+		.interface-menu {
+			margin-bottom: 30px;
+		}
 	}
 }
 
 @media only screen and (min-width: 1024px) {
 	.interface {
-		margin-top: 60px;
+		margin-top: 30px;
 
 		.interface-title {
 			font-size: 1.5rem;
@@ -158,7 +162,7 @@ export default {
 	}
 }
 
-@media only screen and (max-height: 625px) {
+@media only screen and (min-width: 1366px) and (max-height: 625px) {
 	.interface {
 		margin-top: 20px;
 	}
