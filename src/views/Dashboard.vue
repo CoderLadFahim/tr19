@@ -1,6 +1,9 @@
 <template>
 	<div class="dashboard">
-		<router-link :to="{ name: 'Details' }" class="global-details-link">
+		<router-link
+			:to="{ name: 'Details', params: { country_name: 'global' } }"
+			class="global-details-link"
+		>
 			<GlobalStatus class="global-card">
 				<ul class="global-status">
 					<li class="data-field infection-data">
