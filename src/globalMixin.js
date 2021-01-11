@@ -1,7 +1,7 @@
 export default {
 	methods: {
-		saySalaam() {
-			console.log('Salaam');
+		formatData(num) {
+			return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 		},
 	},
 };

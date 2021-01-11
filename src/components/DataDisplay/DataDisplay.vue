@@ -12,7 +12,7 @@
 
 		<div class="venues">
 			<OverallDataCard
-				v-for="c19Data in c19All"
+				v-for="c19Data in venuesData"
 				:key="c19Data.All.country"
 				:c19Data="c19Data.All"
 				@click="redirect(c19Data.All)"
@@ -31,6 +31,10 @@ export default {
 		activeFilter: {
 			type: Object,
 			required: true,
+		},
+		searchTerm: {
+			type: String,
+			required: false,
 		},
 	},
 	components: {
@@ -56,6 +60,15 @@ export default {
 		...mapGetters({
 			c19All: 'getCountryResults',
 		}),
+		venuesData() {
+			return this.c19All
+				.filter(venue =>
+					venue.All.country
+						.toLowerCase()
+						.includes(this.searchTerm.toLowerCase())
+				)
+				.sort(this.activeFilter.compareMethod);
+		},
 	},
 };
 </script>
@@ -87,25 +100,25 @@ export default {
 
 @media only screen and (min-width: 360px) {
 	.data-display .venues {
-		height: 45vh;
+		height: 44vh;
 	}
 }
 
 @media only screen and (min-width: 375px) {
 	.data-display .venues {
-		height: 46vh;
+		height: 45vh;
 	}
 }
 
 @media only screen and (min-width: 414px) {
 	.data-display .venues {
-		height: 48vh;
+		height: 47vh;
 	}
 }
 
 @media only screen and (min-width: 600px) {
 	.data-display .venues {
-		height: 49vh;
+		height: 50vh;
 	}
 }
 

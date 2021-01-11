@@ -21,13 +21,13 @@
 		</p>
 		<ul class="numbers">
 			<li class="infected data">
-				{{ c19Data.confirmed }}
+				{{ formatData(c19Data.confirmed) }}
 			</li>
 			<li class="recovered data">
-				{{ c19Data.recovered }}
+				{{ formatData(c19Data.recovered) }}
 			</li>
 			<li class="deaths data">
-				{{ c19Data.deaths }}
+				{{ formatData(c19Data.deaths) }}
 			</li>
 		</ul>
 	</li>
@@ -176,8 +176,8 @@ export default {
 		min-height: 70px;
 
 		img {
-			margin: 0 25px 0 10px;
-			// margin-right: 30px 0;
+			margin: 0 25px 0 5px;
+			// margin-right: 10px 0;
 			transform: scale(1.7);
 		}
 
@@ -206,7 +206,7 @@ export default {
 		min-height: 40px;
 
 		img {
-			margin-right: 20px;
+			margin-right: 15px;
 			transform: scale(1.3);
 		}
 

@@ -4,10 +4,9 @@
 </template>
 
 <script>
-import LoaderScreen from './components/LoadingScreen';
-
 import { mapActions } from 'vuex';
 import { mapState } from 'vuex';
+
 import LoadingScreen from './components/LoadingScreen';
 
 export default {

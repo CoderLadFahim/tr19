@@ -8,18 +8,20 @@
 				<ul class="global-status">
 					<li class="data-field infection-data">
 						<h1 class="data total-infected">
-							{{ getGlobalData('confirmed') }}
+							{{ formatData(getGlobalData('confirmed')) }}
 						</h1>
 						<p class="data-info">Infected Globally</p>
 					</li>
 					<li class="data-field recovery-data">
 						<h1 class="data total-recovered">
-							{{ getGlobalData('recovered') }}
+							{{ formatData(getGlobalData('recovered')) }}
 						</h1>
 						<p class="data-info">Gobal Recoveries</p>
 					</li>
 					<li class="data-field death-data">
-						<h1 class="data total-deaths">{{ getGlobalData('deaths') }}</h1>
+						<h1 class="data total-deaths">
+							{{ formatData(getGlobalData('deaths')) }}
+						</h1>
 						<p class="data-info">Deaths Worldwide</p>
 					</li>
 				</ul>

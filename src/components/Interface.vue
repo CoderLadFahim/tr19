@@ -9,10 +9,15 @@
 		<h4 class="interface-title">Dashboard:</h4>
 		<div class="interface-menu">
 			<Filter @filter-change="handleFilterChange" />
-			<input type="text" class="search-bar" placeholder="Search Country" />
+			<input
+				type="text"
+				v-model="searchTerm"
+				class="search-bar"
+				placeholder="Search Country"
+			/>
 		</div>
 
-		<DataDisplay :activeFilter="filterMethod" />
+		<DataDisplay :activeFilter="filterMethod" :searchTerm="searchTerm" />
 	</div>
 
 	<Guideline
@@ -39,6 +44,7 @@ export default {
 	data() {
 		return {
 			filterMethod: {},
+			searchTerm: '',
 		};
 	},
 	computed: {

@@ -23,7 +23,13 @@ export default {
 	name: 'Filter',
 	data: () => ({
 		filters: [
-			{ name: 'Infections, Recoveries & Deaths', ID: 'IRD' },
+			{
+				name: 'Infections, Recoveries & Deaths',
+				ID: 'IRD',
+				compareMethod(a, b) {
+					return b.All.confirmed - a.All.confirmed;
+				},
+			},
 			{ name: 'Most Infected', ID: 'MI' },
 			{ name: 'Most Recovered', ID: 'MR' },
 			{ name: 'Most Deaths', ID: 'MD' },
