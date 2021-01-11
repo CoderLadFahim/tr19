@@ -30,14 +30,75 @@ export default {
 					return b.All.confirmed - a.All.confirmed;
 				},
 			},
-			{ name: 'Most Infected', ID: 'MI' },
-			{ name: 'Most Recovered', ID: 'MR' },
-			{ name: 'Most Deaths', ID: 'MD' },
-			{ name: 'Infection Rates', ID: 'IR' },
-			{ name: 'Recovery Rates by Total Infected', ID: 'RRI' },
-			{ name: 'Recovery Rates by Population', ID: 'RRP' },
-			{ name: 'Death Rates by Total Infected', ID: 'DRI' },
-			{ name: 'Death Rates by Population', ID: 'DRP' },
+			{
+				name: 'Most Infected',
+				ID: 'MI',
+				compareMethod(a, b) {
+					return b.All.confirmed - a.All.confirmed;
+				},
+			},
+			{
+				name: 'Most Recovered',
+				ID: 'MR',
+				compareMethod(a, b) {
+					return b.All.recovered - a.All.recovered;
+				},
+			},
+			{
+				name: 'Most Deaths',
+				ID: 'MD',
+				compareMethod(a, b) {
+					return b.All.deaths - a.All.deaths;
+				},
+			},
+			{
+				name: 'Infection Rates',
+				ID: 'IR',
+				compareMethod(a, b) {
+					return (
+						b.All.confirmed / b.All.population -
+						a.All.confirmed / a.All.population
+					);
+				},
+			},
+			{
+				name: 'Recovery Rates by Total Infected',
+				ID: 'RRI',
+				compareMethod(a, b) {
+					return (
+						b.All.recovered / b.All.confirmed -
+						a.All.recovered / a.All.confirmed
+					);
+				},
+			},
+			{
+				name: 'Recovery Rates by Population',
+				ID: 'RRP',
+				compareMethod(a, b) {
+					return (
+						b.All.recovered / b.All.population -
+						a.All.recovered / a.All.population
+					);
+				},
+			},
+			{
+				name: 'Death Rates by Total Infected',
+				ID: 'DRI',
+				compareMethod(a, b) {
+					return (
+						b.All.deaths / b.All.confirmed - a.All.deaths / a.All.confirmed
+					);
+				},
+			},
+			{
+				name: 'Death Rates by Population',
+				ID: 'DRP',
+				compareMethod(a, b) {
+					return (
+						b.All.deaths / b.All.population - a.All.deaths / a.All.population
+					);
+				},
+			},
 		],
 		activeFilter: 'IRD',
 	}),

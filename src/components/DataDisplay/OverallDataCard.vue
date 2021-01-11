@@ -109,11 +109,11 @@ export default {
 			color: $red;
 		}
 	}
+}
 
-	&:hover {
-		background-color: $gradient-start;
-		cursor: pointer;
-	}
+li.venue-data:hover {
+	background-color: $gradient-start;
+	cursor: pointer;
 }
 
 @media only screen and (min-width: 600px) {
