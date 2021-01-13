@@ -13,6 +13,9 @@
 		<div class="venues">
 			<OverallDataCard
 				v-for="c19Data in venuesData"
+				v-show="
+					c19Data.All.country.toLowerCase().includes(searchTerm.toLowerCase())
+				"
 				:key="c19Data.All.country"
 				:c19Data="c19Data.All"
 				@click="redirect(c19Data.All)"
@@ -37,6 +40,11 @@ export default {
 			required: false,
 		},
 	},
+	data() {
+		return {
+			activeFilterRates: [],
+		};
+	},
 	components: {
 		OverallDataCard,
 	},
@@ -58,16 +66,10 @@ export default {
 	},
 	computed: {
 		...mapGetters({
-			c19All: 'getCountryResults',
+			c19All: 'getVenuesData',
 		}),
 		venuesData() {
-			return this.c19All
-				.filter(venue =>
-					venue.All.country
-						.toLowerCase()
-						.includes(this.searchTerm.toLowerCase())
-				)
-				.sort(this.activeFilter.compareMethod);
+			return this.c19All.sort(this.activeFilter.compareMethod);
 		},
 	},
 };
@@ -90,7 +92,7 @@ export default {
 	.venues {
 		margin-top: 10px;
 		// border: 0.1px solid goldenrod;
-		height: 44.9vh;
+		height: 48vh;
 		overflow-y: scroll;
 		display: flex;
 		flex-direction: column;
@@ -100,19 +102,19 @@ export default {
 
 @media only screen and (min-width: 360px) {
 	.data-display .venues {
-		height: 44vh;
+		height: 45vh;
 	}
 }
 
 @media only screen and (min-width: 375px) {
 	.data-display .venues {
-		height: 45vh;
+		height: 45.5vh;
 	}
 }
 
 @media only screen and (min-width: 414px) {
 	.data-display .venues {
-		height: 47vh;
+		height: 48vh;
 	}
 }
 

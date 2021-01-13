@@ -27,7 +27,12 @@ export default {
 				name: 'Infections, Recoveries & Deaths',
 				ID: 'IRD',
 				compareMethod(a, b) {
-					return b.All.confirmed - a.All.confirmed;
+					return (
+						b.All.confirmed +
+						b.All.deaths +
+						b.All.recovered -
+						(a.All.confirmed + a.All.deaths + a.All.recovered)
+					);
 				},
 			},
 			{
@@ -169,7 +174,7 @@ export default {
 		background-color: #fff;
 		color: $purple;
 		list-style: none;
-		width: 50vw;
+		width: 60vw;
 		border-radius: 10px;
 		overflow: hidden;
 		z-index: 99;
