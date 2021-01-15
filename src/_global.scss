@@ -1,11 +1,11 @@
 //////////// VARIABLES ////////////
 
 // font stack
-$regular-font: 'Nunito', Arial, Helvetica, sans-serif;
+$regular-font: 'Nunito Sans', Arial, Helvetica, sans-serif;
 $number-font: 'Montserrat', Arial, Helvetica, sans-serif;
 
 // COLORS
-$card-col: #273647;
+$lightnavy: #273647;
 
 // gradient colors
 $gradient-start: #222f3e;
@@ -27,10 +27,73 @@ $navyblue: #192a56;
 $evenchild-col: #273546;
 $oddchild-col: #2d3d4f;
 
+//////////// MIXINS ////////////
+@mixin background-filter($opacity, $img-url) {
+	background-image: linear-gradient(
+			rgba(39, 54, 71, $opacity),
+			rgba(39, 54, 71, $opacity)
+		),
+		url($img-url);
+	background-size: cover;
+	background-position: center center;
+}
+
+@mixin dimen($width, $height: $width) {
+	width: $width;
+	height: $height;
+}
+
+@mixin arrow($direction, $size) {
+	@if $direction == 'right' {
+		transform: rotate(45deg) scale($size);
+	} @else {
+		transform: rotate(-135deg) scale($size);
+	}
+	display: inline-block;
+	@include dimen(15px);
+	color: $yellow;
+	border: {
+		style: solid;
+		bottom: 2px;
+		left: 2px;
+	}
+
+	&::after {
+		content: '';
+		display: inline-block;
+		position: absolute;
+		@include dimen(3px, 30px);
+		background-color: $yellow;
+		transform: rotate(45deg);
+		bottom: -13px;
+		right: 8.6px;
+	}
+}
 //////////// REUSABLE CLASSES ////////////
 .global-background {
 	background: rgba(39, 54, 71, 0.95);
 }
 .country-background {
 	background: rgba(39, 54, 71, 0.8);
+}
+
+// data display h1 and p parent class
+.data-field {
+	align-self: center;
+	justify-self: center;
+	text-align: center;
+
+	.data-info {
+		color: $darkgrey;
+	}
+}
+
+@keyframes load {
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(360deg);
+	}
 }
