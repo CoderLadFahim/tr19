@@ -19,6 +19,18 @@ export default createStore({
 				(result, i) => i && result.All.country
 			);
 		},
+		getVenueData: state => venueName => {
+			const venues = Object.values(state.c19Status).filter(
+				venue => venue.All.country
+			);
+
+			venueName = venueName.split('_').join(' ');
+
+			return venueName === 'global'
+				? state.c19Status.Global.All
+				: venues.find(venue => venue.All.country.toLowerCase() === venueName)
+						.All;
+		},
 	},
 	mutations: {
 		SET_DATA(state, payload) {

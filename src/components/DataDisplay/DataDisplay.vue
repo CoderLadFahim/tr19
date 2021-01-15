@@ -50,8 +50,8 @@ export default {
 	},
 	methods: {
 		redirect(country) {
-			let { country: countryName } = country;
-			countryName = countryName
+			let { country: venueName } = country;
+			venueName = venueName
 				.toLowerCase()
 				.split(' ')
 				.join('_');
@@ -59,7 +59,7 @@ export default {
 			this.$router.push({
 				name: 'Details',
 				params: {
-					country_name: countryName,
+					venue_name: venueName,
 				},
 			});
 		},

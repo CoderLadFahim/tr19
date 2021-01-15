@@ -1,7 +1,7 @@
 <template>
 	<div class="dashboard">
 		<router-link
-			:to="{ name: 'Details', params: { country_name: 'global' } }"
+			:to="{ name: 'Details', params: { venue_name: 'global' } }"
 			class="global-details-link"
 		>
 			<GlobalStatus class="global-card">

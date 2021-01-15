@@ -9,7 +9,7 @@ const routes = [
 		component: Dashboard,
 	},
 	{
-		path: '/:country_name',
+		path: '/:venue_name',
 		name: 'Details',
 		component: Details,
 		props: true,
