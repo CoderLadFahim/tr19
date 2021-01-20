@@ -46,6 +46,9 @@ export default {
 	computed: {
 		...mapGetters(['getGlobalData']),
 	},
+	created() {
+		document.body.style.marginTop = '11px';
+	},
 };
 </script>
 

@@ -47,13 +47,13 @@
 			<Guideline
 				:msg="{
 					title: 'wash your hands',
-					desc: 'Wash your hands thoroughly with soap or hand-sanitizer',
+					desc: 'Wash your hands thoroughly with soap or handwash',
 				}"
 			/>
 			<Guideline
 				:msg="{
 					title: 'Keep your distance',
-					desc: 'Stay two meters of six feet apart from one another',
+					desc: 'Stay two meters or six feet apart from one another',
 				}"
 			/>
 		</div>
@@ -79,6 +79,9 @@ export default {
 	},
 	computed: {
 		...mapGetters({ venueData: 'getVenueData' }),
+	},
+	created() {
+		document.body.style.marginTop = '';
 	},
 };
 </script>
@@ -317,11 +320,6 @@ header {
 			}
 		}
 
-		// & > * {
-		// 	width: auto;
-		// 	height: auto;
-		// }
-
 		width: 90%;
 		height: 85%;
 
@@ -337,6 +335,9 @@ header {
 			@include dimen(auto);
 			margin: 0;
 			align-self: stretch;
+			background-color: $gradient-start;
+			border: 1px solid;
+
 			h1 {
 				font-size: 2rem;
 			}
@@ -354,6 +355,7 @@ header {
 
 			p {
 				width: 90%;
+				font-size: 1.3rem;
 			}
 		}
 
@@ -369,7 +371,7 @@ header {
 	}
 }
 
-@media only screen and (max-height: 700px) {
+@media only screen and (min-width: 1024px) and (max-height: 700px) {
 	header {
 		// margin-top: 10px;
 		margin-bottom: 20px;
