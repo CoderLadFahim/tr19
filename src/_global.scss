@@ -1,7 +1,7 @@
 //////////// VARIABLES ////////////
 
 // font stack
-$regular-font: 'Nunito Sans', Arial, Helvetica, sans-serif;
+$regular-font: 'Nunito', Arial, Helvetica, sans-serif;
 $number-font: 'Montserrat', Arial, Helvetica, sans-serif;
 
 // COLORS
@@ -49,9 +49,9 @@ $oddchild-col: #2d3d4f;
 	} @else {
 		transform: rotate(-135deg) scale($size);
 	}
-	display: inline-block;
 	@include dimen(15px);
 	color: $yellow;
+	display: inline;
 	border: {
 		style: solid;
 		bottom: 2px;

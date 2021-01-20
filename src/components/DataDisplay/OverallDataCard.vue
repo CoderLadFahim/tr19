@@ -40,6 +40,9 @@ export default {
 		c19Data: {
 			type: Object,
 		},
+		position: {
+			type: Number,
+		},
 	},
 };
 </script>
@@ -96,7 +99,7 @@ export default {
 		display: flex;
 		justify-content: space-between;
 		list-style: none;
-		font-size: 0.6rem;
+		font-size: 0.5rem;
 		font-weight: 900;
 
 		.infected {
@@ -112,7 +115,7 @@ export default {
 }
 
 li.venue-data:hover {
-	background-color: $gradient-start;
+	border: 1px solid $purple;
 	cursor: pointer;
 }
 

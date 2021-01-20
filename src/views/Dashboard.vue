@@ -64,7 +64,7 @@ export default {
 	}
 
 	.global-card {
-		position: relative;
+		padding-top: 0;
 	}
 
 	.global-status {
@@ -241,6 +241,11 @@ export default {
 			flex-direction: column;
 			justify-content: space-around;
 			width: 95vw;
+			// transition: 10ms;
+
+			&:hover {
+				border: 1px solid $purple;
+			}
 		}
 
 		.global-status {
@@ -294,11 +299,11 @@ export default {
 
 	.dashboard .global-status .data-field {
 		h1.data {
-			font-size: 2rem;
+			font-size: 2.5rem;
 		}
 
 		.data-info {
-			font-size: 0.85rem;
+			font-size: 1.5rem;
 		}
 	}
 }

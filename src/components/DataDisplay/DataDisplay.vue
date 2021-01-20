@@ -12,12 +12,13 @@
 
 		<div class="venues">
 			<OverallDataCard
-				v-for="c19Data in venuesData"
+				v-for="(c19Data, i) in venuesData"
 				v-show="
 					c19Data.All.country.toLowerCase().includes(searchTerm.toLowerCase())
 				"
 				:key="c19Data.All.country"
 				:c19Data="c19Data.All"
+				:position="i + 1"
 				@click="redirect(c19Data.All)"
 			/>
 		</div>

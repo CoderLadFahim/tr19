@@ -11,7 +11,7 @@ export default {};
 <style lang="scss" scoped>
 .card {
 	color: $grey;
-	border: 3px solid;
+	// border: 3px solid;
 	border-radius: 10px;
 	width: 85vw;
 	height: 30vh;
@@ -22,24 +22,15 @@ export default {};
 		position: absolute;
 		box-sizing: content-box;
 		text-align: center;
-		font-weight: bolder;
+		font-weight: bold;
+		font-size: 0.7rem;
 		color: #fff;
 		background-color: $grey;
 		border-radius: 0 0 10px 10px;
-		padding: 3px 15px;
+		padding: 3px 0;
 		left: 50%;
-		top: -3px;
+		top: 0px;
 		transform: translateX(-50%);
-	}
-}
-
-.recovery-card {
-	color: $green;
-
-	&::before {
-		content: 'Recovery Status';
-		background-color: $green;
-		width: 50%;
 	}
 }
 
@@ -49,7 +40,15 @@ export default {};
 	&::before {
 		content: 'Infection Status';
 		background-color: $yellow;
-		width: 50%;
+	}
+}
+
+.recovery-card {
+	color: $green;
+
+	&::before {
+		content: 'Recovery Status';
+		background-color: $green;
 	}
 }
 
@@ -59,7 +58,6 @@ export default {};
 	&::before {
 		content: 'Death Status';
 		background-color: $red;
-		width: 41%;
 	}
 }
 
