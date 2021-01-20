@@ -116,14 +116,6 @@ export default {
 	.guideline {
 		margin-top: 20px;
 		height: 68vh;
-
-		// h1 {
-		// 	font-size: 2rem;
-		// }
-
-		// p {
-		// 	font-size: 1.5rem;
-		// }
 	}
 }
 </style>

@@ -22,7 +22,6 @@ export default {
 	},
 	created() {
 		this.$store.dispatch('fetchData');
-		// !this.c19Status ? document.body.classList.add('addMargin') : '';
 	},
 };
 </script>
@@ -52,7 +51,7 @@ body {
 
 @media only screen and (min-width: 1366px) and (max-height: 625px) {
 	body {
-		margin-top: 10px;
+		// margin-top: 11px;
 	}
 }
 </style>
