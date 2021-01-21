@@ -23,18 +23,18 @@ export default {
 	name: 'Filter',
 	data: () => ({
 		filters: [
-			{
-				name: 'Infections, Recoveries & Deaths',
-				ID: 'IRD',
-				compareMethod(a, b) {
-					return (
-						b.All.confirmed +
-						b.All.deaths +
-						b.All.recovered -
-						(a.All.confirmed + a.All.deaths + a.All.recovered)
-					);
-				},
-			},
+			// {
+			// 	name: 'Infections, Recoveries & Deaths',
+			// 	ID: 'IRD',
+			// 	compareMethod(a, b) {
+			// 		return (
+			// 			b.All.confirmed +
+			// 			b.All.deaths +
+			// 			b.All.recovered -
+			// 			(a.All.confirmed + a.All.deaths + a.All.recovered)
+			// 		);
+			// 	},
+			// },
 			{
 				name: 'Most Infected',
 				ID: 'MI',
@@ -105,7 +105,7 @@ export default {
 				},
 			},
 		],
-		activeFilter: 'IRD',
+		activeFilter: 'MI',
 	}),
 	methods: {
 		hideShowFilters() {

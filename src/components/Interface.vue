@@ -47,12 +47,6 @@ export default {
 			searchTerm: '',
 		};
 	},
-	computed: {
-		...mapGetters({ results: 'getCountryResults' }),
-		countryResults() {
-			return this.results.map((result, i) => result.All);
-		},
-	},
 	methods: {
 		handleFilterChange(newFilter) {
 			this.filterMethod = newFilter;

@@ -71,13 +71,14 @@ export default {
 	align-items: center;
 	padding: 0 7px;
 	min-height: 40px;
-	color: #fff;
 	font-size: 0.75rem;
 	transition: 200ms;
+	color: $purple;
 
 	.country {
 		display: flex;
 		align-items: center;
+		color: #fff;
 	}
 
 	img {

@@ -11,7 +11,7 @@
 		</div>
 		<div class="infection-rate">
 			<h1 class="data">
-				{{ getRate('InfectionRate') }}
+				{{ getRate('InfectionRate', venueDetails) }}
 			</h1>
 			<h3 class="field-title">
 				{{
@@ -34,7 +34,7 @@
 		</div>
 		<div class="main-data">
 			<h3 class="infection-based-rate data">
-				{{ getRate('RecoveryRateByInfections') }}
+				{{ getRate('RecoveryRateByInfections', venueDetails) }}
 			</h3>
 			<h5 class="field-title">
 				{{
@@ -46,7 +46,7 @@
 		</div>
 		<div class="main-data">
 			<h3 class="population-based-rate data">
-				{{ getRate('RecoveryRateByPopulation') }}
+				{{ getRate('RecoveryRateByPopulation', venueDetails) }}
 			</h3>
 			<h5 class="field-title">
 				{{
@@ -69,7 +69,7 @@
 		</div>
 		<div class="main-data">
 			<h3 class="infection-based-rate data">
-				{{ getRate('DeathRateByInfections') }}
+				{{ getRate('DeathRateByInfections', venueDetails) }}
 			</h3>
 			<h5 class="field-title">
 				{{
@@ -81,7 +81,7 @@
 		</div>
 		<div class="main-data">
 			<h3 class="population-based-rate data">
-				{{ getRate('DeathRateByPopulation') }}
+				{{ getRate('DeathRateByPopulation', venueDetails) }}
 			</h3>
 			<h5 class="field-title">
 				{{
@@ -107,35 +107,6 @@ export default {
 		venueDetails: {
 			type: Object,
 			required: true,
-		},
-	},
-	methods: {
-		getRate(rateType) {
-			let returnVal = 0;
-			const decimalPlace = 2;
-
-			const { confirmed, recovered, deaths, population } = this.venueDetails;
-
-			switch (rateType) {
-				case 'InfectionRate':
-					returnVal = ((confirmed / population) * 100).toFixed(decimalPlace);
-					break;
-				case 'RecoveryRateByInfections':
-					returnVal = ((recovered / confirmed) * 100).toFixed(decimalPlace);
-					break;
-				case 'RecoveryRateByPopulation':
-					returnVal = ((recovered / population) * 100).toFixed(decimalPlace);
-					break;
-				case 'DeathRateByInfections':
-					returnVal = ((deaths / confirmed) * 100).toFixed(decimalPlace);
-					break;
-				case 'DeathRateByPopulation':
-					returnVal = ((deaths / population) * 100).toFixed(decimalPlace);
-					break;
-			}
-
-			if (returnVal > 0.01) return returnVal + '%';
-			return '---';
 		},
 	},
 	components: {

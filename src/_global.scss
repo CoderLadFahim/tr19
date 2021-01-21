@@ -69,6 +69,11 @@ $oddchild-col: #2d3d4f;
 		right: 8.6px;
 	}
 }
+
+@mixin centralize() {
+	display: grid;
+	place-items: center;
+}
 //////////// REUSABLE CLASSES ////////////
 .global-background {
 	background: rgba(39, 54, 71, 0.95);

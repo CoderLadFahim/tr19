@@ -32,7 +32,7 @@
 		<div class="data-grid">
 			<router-link to="/" class="back-btn">
 				<span class="arrow"></span>
-				<span class="btn-text">Dashboard</span>
+				<span class="btn-text">Back to Dashboard</span>
 			</router-link>
 			<DetailsCard
 				:cardType="'infection'"
@@ -302,8 +302,8 @@ header {
 			top: 5px;
 			left: 5px;
 			font-size: 1rem;
-			width: 160px;
-			padding: 5px 0;
+			width: 210px;
+			padding: 10px 0;
 			border-radius: 10px;
 			display: flex;
 			justify-content: space-evenly;

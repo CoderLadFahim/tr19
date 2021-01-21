@@ -7,11 +7,11 @@
 					{{ activeFilter.name }}
 				</span>
 			</p>
-			<OverallDataCard />
+			<DataBar :displayType="activeFilter.ID" />
 		</div>
 
 		<div class="venues">
-			<OverallDataCard
+			<DataBar
 				v-for="(c19Data, i) in venuesData"
 				v-show="
 					c19Data.All.country.toLowerCase().includes(searchTerm.toLowerCase())
@@ -19,6 +19,7 @@
 				:key="c19Data.All.country"
 				:c19Data="c19Data.All"
 				:position="i + 1"
+				:displayType="activeFilter.ID"
 				@click="redirect(c19Data.All)"
 			/>
 		</div>
@@ -27,6 +28,7 @@
 
 <script>
 import OverallDataCard from './OverallDataCard';
+import DataBar from './DataBar';
 import { mapGetters } from 'vuex';
 
 export default {
@@ -43,11 +45,12 @@ export default {
 	},
 	data() {
 		return {
-			activeFilterRates: [],
+			// activeFilterRates: [],
 		};
 	},
 	components: {
 		OverallDataCard,
+		DataBar,
 	},
 	methods: {
 		redirect(country) {
@@ -161,9 +164,15 @@ export default {
 	}
 }
 
-@media only screen and (max-width: 1280px) and (min-height: 625px) {
+@media only screen and (max-width: 1280px) and (min-height: 800px) {
 	.data-display .venues {
 		height: 48.5vh;
+	}
+}
+
+@media only screen and (max-width: 1366px) and (max-height: 625px) {
+	.data-display .venues {
+		height: 50vh;
 	}
 }
 </style>
