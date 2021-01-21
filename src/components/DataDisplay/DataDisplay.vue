@@ -101,93 +101,69 @@ export default {
 	}
 }
 
-@media only screen and (min-width: 360px) {
-	.data-display .venues {
-		height: 45vh;
-	}
-}
-
-@media only screen and (min-width: 375px) {
-	.data-display .venues {
-		height: 45.5vh;
-	}
-}
-
-@media only screen and (min-width: 414px) {
-	.data-display .venues {
-		height: 48vh;
-	}
-}
-
-@media only screen and (min-width: 600px) {
-	.data-display .venues {
-		height: 50vh;
-	}
-}
-
-@media only screen and (min-width: 768px) {
-	.data-display {
-		.indicators p {
-			font-size: 1rem;
-		}
-
-		.venues {
-			height: 47vh;
-		}
-	}
-}
-
-@media only screen and (min-width: 800px) {
-	.data-display .venues {
-		height: 52vh;
-	}
-}
-
-@media only screen and (min-width: 1024px) {
-	.data-display .venues {
-		height: 50vh;
-	}
-}
-
-@media only screen and (min-width: 1280px) {
+@media only screen and (min-height: 640px) {
 	.data-display .venues {
 		height: 46vh;
 	}
 }
 
-@media only screen and (min-width: 1280px) and (max-height: 720px) {
-	.data-display .venues {
-		height: 43vh;
-	}
-}
-
-@media only screen and (min-width: 1366px) {
-	.data-display .venues {
-		height: 40vh;
-	}
-}
-
-@media only screen and (min-width: 1440px) {
-	.data-display .venues {
-		height: 44vh;
-	}
-}
-
-@media only screen and (min-width: 1536px) {
-	.data-display .venues {
-		height: 43vh;
-	}
-}
-
-@media only screen and (min-width: 1920px) {
+@media only screen and (min-height: 667px) {
 	.data-display .venues {
 		height: 47vh;
 	}
 }
 
-@media only screen and (min-width: 1366px) and (max-height: 625px) {
+@media only screen and (min-height: 736px) {
+	.data-display .venues {
+		height: 49.5vh;
+	}
+}
+
+@media only screen and (min-height: 760px) {
+	.data-display .venues {
+		height: 50vh;
+	}
+}
+
+@media only screen and (min-height: 780px) {
+	.data-display .venues {
+		height: 50.5vh;
+	}
+}
+
+@media only screen and (min-height: 896px) {
+	.data-display .venues {
+		height: 53vh;
+	}
+}
+
+@media only screen and (min-height: 962px) {
+	.data-display .venues {
+		height: 50.5vh;
+	}
+}
+
+@media only screen and (min-height: 1024px) {
+	.data-display .venues {
+		height: 51.5vh;
+	}
+}
+
+@media only screen and (max-width: 768px) and (min-height: 1024px) {
 	.data-display .venues {
 		height: 49vh;
+	}
+}
+
+@media only screen and (min-height: 1280px) {
+	.data-display .venues {
+		height: 53.5vh;
+	}
+}
+
+@media only screen and (max-width: 1280px) and (min-height: 625px) {
+	.data-display .venues {
+		height: 48.5vh;
 	}
 }
 </style>
