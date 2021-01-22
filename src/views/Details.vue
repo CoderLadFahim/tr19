@@ -80,9 +80,6 @@ export default {
 	computed: {
 		...mapGetters({ venueData: 'getVenueData' }),
 	},
-	created() {
-		document.body.style.marginTop = '';
-	},
 };
 </script>
 
@@ -91,7 +88,6 @@ export default {
 	height: 100vh;
 	width: 100vw;
 	overflow: hidden;
-	margin-top: -15px;
 }
 
 a.back-btn {

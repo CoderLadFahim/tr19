@@ -43,11 +43,6 @@ export default {
 			required: false,
 		},
 	},
-	data() {
-		return {
-			// activeFilterRates: [],
-		};
-	},
 	components: {
 		OverallDataCard,
 		DataBar,
@@ -112,7 +107,7 @@ export default {
 
 @media only screen and (min-height: 720px) {
 	.data-display .venues {
-		height: 46vh;
+		height: 47vh;
 	}
 }
 
@@ -130,13 +125,13 @@ export default {
 
 @media only screen and (min-height: 800px) {
 	.data-display .venues {
-		height: 48.5vh;
+		height: 49vh;
 	}
 }
 
 @media only screen and (min-height: 864px) {
 	.data-display .venues {
-		height: 45vh;
+		height: 45.5vh;
 	}
 }
 
@@ -148,7 +143,7 @@ export default {
 
 @media only screen and (min-height: 900px) {
 	.data-display .venues {
-		height: 46vh;
+		height: 46.5vh;
 	}
 }
 
@@ -178,7 +173,7 @@ export default {
 
 @media only screen and (max-width: 1366px) and (max-height: 625px) {
 	.data-display .venues {
-		height: 50vh;
+		height: 51vh;
 	}
 }
 </style>

@@ -1,5 +1,5 @@
 import { createStore } from 'vuex';
-import demoData from './demodata';
+// import demoData from './demodata';
 
 const cors = 'https://cors-anywhere.herokuapp.com/';
 const apiEndpoint = 'https://covid-api.mmediagroup.fr/v1/cases';
@@ -48,15 +48,15 @@ export default createStore({
 	},
 	actions: {
 		fetchData(context) {
-			const appInProduction = false;
-			if (appInProduction) {
-				fetch(cors + apiEndpoint)
-					.then(res => res.json())
-					.then(data => context.commit('SET_DATA', data))
-					.catch(err => console.log(err));
-			} else {
-				context.commit('SET_DATA', demoData);
-			}
+			// const appInProduction = false;
+			// if (appInProduction) {
+			fetch(cors + apiEndpoint)
+				.then(res => res.json())
+				.then(data => context.commit('SET_DATA', data))
+				.catch(err => console.log(err));
+			// } else {
+			// 	context.commit('SET_DATA', demoData);
+			// }
 		},
 	},
 	modules: {},

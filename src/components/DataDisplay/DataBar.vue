@@ -151,7 +151,7 @@ export default {
 	.rank {
 		// @include centralize();
 		font-weight: bolder;
-		font-size: 1rem;
+		font-size: 0.85rem;
 	}
 
 	.country {
