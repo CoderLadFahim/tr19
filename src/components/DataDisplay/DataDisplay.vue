@@ -96,17 +96,11 @@ export default {
 	.venues {
 		margin-top: 10px;
 		// border: 0.1px solid goldenrod;
-		height: 48vh;
+		height: 46vh;
 		overflow-y: scroll;
 		display: flex;
 		flex-direction: column;
 		justify-content: start;
-	}
-}
-
-@media only screen and (min-height: 640px) {
-	.data-display .venues {
-		height: 46vh;
 	}
 }
 
@@ -116,27 +110,45 @@ export default {
 	}
 }
 
-@media only screen and (min-height: 736px) {
+@media only screen and (min-height: 720px) {
 	.data-display .venues {
-		height: 49.5vh;
+		height: 46vh;
 	}
 }
 
-@media only screen and (min-height: 760px) {
+@media only screen and (min-height: 768px) {
 	.data-display .venues {
-		height: 50vh;
+		height: 43vh;
 	}
 }
 
 @media only screen and (min-height: 780px) {
 	.data-display .venues {
-		height: 50.5vh;
+		height: 47vh;
+	}
+}
+
+@media only screen and (min-height: 800px) {
+	.data-display .venues {
+		height: 48.5vh;
+	}
+}
+
+@media only screen and (min-height: 864px) {
+	.data-display .venues {
+		height: 45vh;
 	}
 }
 
 @media only screen and (min-height: 896px) {
 	.data-display .venues {
 		height: 53vh;
+	}
+}
+
+@media only screen and (min-height: 900px) {
+	.data-display .venues {
+		height: 46vh;
 	}
 }
 
@@ -148,12 +160,6 @@ export default {
 
 @media only screen and (min-height: 1024px) {
 	.data-display .venues {
-		height: 51.5vh;
-	}
-}
-
-@media only screen and (max-width: 768px) and (min-height: 1024px) {
-	.data-display .venues {
 		height: 49vh;
 	}
 }
@@ -164,9 +170,9 @@ export default {
 	}
 }
 
-@media only screen and (max-width: 1280px) and (min-height: 800px) {
+@media only screen and (min-height: 1366px) {
 	.data-display .venues {
-		height: 48.5vh;
+		height: 51vh;
 	}
 }
 

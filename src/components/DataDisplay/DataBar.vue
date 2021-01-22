@@ -159,13 +159,15 @@ export default {
 		align-items: center;
 		color: #fff;
 		img {
-			margin-right: 10px;
-			margin-left: 5px;
+			margin: 0 10px;
 		}
 		flex: 1;
 		// margin-left: 10px;
 	}
-	// transition: 50ms;
+
+	.data {
+		font-size: 0.9rem;
+	}
 
 	&.venues-data:hover {
 		& > * {
@@ -180,97 +182,34 @@ export default {
 
 @media only screen and (min-width: 600px) {
 	.venue-data.indicator {
-		min-height: 40px;
-
-		li {
-			font-size: 0.8rem;
+		.rank {
+			font-size: 0.85rem;
 		}
-	}
-
-	.venue-data {
-		font-size: 1rem;
-
-		min-height: 50px;
-
-		img {
-			margin-right: 15px;
-			transform: scale(1.3);
-		}
-
-		.numbers {
-			font-size: 0.8rem;
-		}
-	}
-}
-
-@media only screen and (min-width: 768px) {
-	.venue-data.indicator li {
-		font-size: 1rem;
-	}
-
-	.venue-data {
-		font-size: 1.1rem;
-
-		img {
-			margin-right: 20px;
-			transform: scale(1.5);
-		}
-	}
-}
-
-@media only screen and (min-width: 1024px) {
-	.venue-data.indicator {
-		min-height: 60px;
-
-		.country {
-			font-size: 1.5rem;
-		}
-
-		li {
-			font-size: 1.3rem;
-		}
-	}
-
-	.venue-data {
-		font-size: 1.6rem;
-		min-height: 70px;
-
-		img {
-			margin: 0 25px 0 5px;
-			// margin-right: 10px 0;
-			transform: scale(1.7);
-		}
-
-		.numbers {
-			font-size: 1.3rem;
-		}
-	}
-}
-
-@media only screen and (min-width: 1280px) {
-	.venue-data.indicator {
-		min-height: 35px;
 
 		.country {
 			font-size: 0.9rem;
+			padding-left: 14px;
 		}
 
-		li {
-			font-size: 1rem;
+		.data {
+			font-size: 0.8rem;
 		}
 	}
 
 	.venue-data {
-		font-size: 1rem;
-		min-height: 40px;
-
-		img {
-			margin-right: 15px;
-			transform: scale(1.3);
+		.rank {
+			font-size: 1rem;
 		}
 
-		.numbers {
+		.country {
 			font-size: 1rem;
+			img {
+				margin: 0 15px;
+			}
+		}
+
+		.data {
+			font-size: 1.1rem;
 		}
 	}
 }
