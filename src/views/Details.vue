@@ -345,7 +345,7 @@ header {
 			}
 
 			.btn-text {
-				margin-left: 0;
+				margin-left: 5px;
 			}
 		}
 
