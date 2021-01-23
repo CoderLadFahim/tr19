@@ -128,9 +128,25 @@ export default {
 				this.filters.find(filter => filter.ID === this.activeFilter)
 			);
 		},
+		// this method hides the filter when user clicks on anywhere but the filter
+		hideFilter(e) {
+			const classesToAvoid = [
+				...Array.from(e.target.classList),
+				...Array.from(e.target.parentElement.classList),
+			];
+
+			if (classesToAvoid.some(htmlClass => !htmlClass.includes('filter'))) {
+				setTimeout(() => {
+					this.filterHide = true;
+				}, 100);
+			}
+		},
 	},
 	mounted() {
 		this.emitFilterType();
+		document.body.addEventListener('click', e => {
+			this.hideFilter(e);
+		});
 	},
 };
 </script>
@@ -165,6 +181,12 @@ export default {
 				right: 6px solid transparent;
 				top: 6px solid $purple;
 			}
+		}
+
+		h5,
+		.arrow-down {
+			// this is essential for 'this.hideMenu()' to work
+			pointer-events: none;
 		}
 	}
 

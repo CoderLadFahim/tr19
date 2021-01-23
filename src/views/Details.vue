@@ -200,7 +200,7 @@ header {
 	}
 }
 
-@media only screen and (max-width: 414px) and (max-height: 896px) {
+@media only screen and (min-width: 414px) and (max-height: 896px) {
 	a.back-btn .btn-text {
 		padding: 5px 0;
 		font-size: 1.1rem;
