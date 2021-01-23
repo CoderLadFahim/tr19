@@ -1,10 +1,10 @@
 <template>
 	<div class="filter">
-		<div class="filter-menu" @click="hideShowFilters">
+		<div class="filter-menu" @click="toggleFilter">
 			<h5>Sort By</h5>
 			<div class="arrow-down"></div>
 		</div>
-		<ul class="filter-options hide" ref="filters">
+		<ul class="filter-options" :class="{ hide: filterHide }" ref="filters">
 			<li
 				v-for="filter in filters"
 				:key="filter.ID"
@@ -21,105 +21,105 @@
 <script>
 export default {
 	name: 'Filter',
-	data: () => ({
-		filters: [
-			// {
-			// 	name: 'Infections, Recoveries & Deaths',
-			// 	ID: 'IRD',
-			// 	compareMethod(a, b) {
-			// 		return (
-			// 			b.All.confirmed +
-			// 			b.All.deaths +
-			// 			b.All.recovered -
-			// 			(a.All.confirmed + a.All.deaths + a.All.recovered)
-			// 		);
-			// 	},
-			// },
-			{
-				name: 'Most Infected',
-				ID: 'MI',
-				compareMethod(a, b) {
-					return b.All.confirmed - a.All.confirmed;
+	data() {
+		return {
+			filterHide: true,
+			activeFilter: 'MI',
+			filters: [
+				// {
+				// 	name: 'Infections, Recoveries & Deaths',
+				// 	ID: 'IRD',
+				// 	compareMethod(a, b) {
+				// 		return (
+				// 			b.All.confirmed +
+				// 			b.All.deaths +
+				// 			b.All.recovered -
+				// 			(a.All.confirmed + a.All.deaths + a.All.recovered)
+				// 		);
+				// 	},
+				// },
+				{
+					name: 'Most Infected',
+					ID: 'MI',
+					compareMethod(a, b) {
+						return b.All.confirmed - a.All.confirmed;
+					},
 				},
-			},
-			{
-				name: 'Most Recovered',
-				ID: 'MR',
-				compareMethod(a, b) {
-					return b.All.recovered - a.All.recovered;
+				{
+					name: 'Most Recovered',
+					ID: 'MR',
+					compareMethod(a, b) {
+						return b.All.recovered - a.All.recovered;
+					},
 				},
-			},
-			{
-				name: 'Most Deaths',
-				ID: 'MD',
-				compareMethod(a, b) {
-					return b.All.deaths - a.All.deaths;
+				{
+					name: 'Most Deaths',
+					ID: 'MD',
+					compareMethod(a, b) {
+						return b.All.deaths - a.All.deaths;
+					},
 				},
-			},
-			{
-				name: 'Infection Rates',
-				ID: 'IR',
-				compareMethod(a, b) {
-					return (
-						b.All.confirmed / b.All.population -
-						a.All.confirmed / a.All.population
-					);
+				{
+					name: 'Infection Rates',
+					ID: 'IR',
+					compareMethod(a, b) {
+						return (
+							b.All.confirmed / b.All.population -
+							a.All.confirmed / a.All.population
+						);
+					},
 				},
-			},
-			{
-				name: 'Recovery Rates by Total Infected',
-				ID: 'RRI',
-				compareMethod(a, b) {
-					return (
-						b.All.recovered / b.All.confirmed -
-						a.All.recovered / a.All.confirmed
-					);
+				{
+					name: 'Recovery Rates by Total Infected',
+					ID: 'RRI',
+					compareMethod(a, b) {
+						return (
+							b.All.recovered / b.All.confirmed -
+							a.All.recovered / a.All.confirmed
+						);
+					},
 				},
-			},
-			{
-				name: 'Recovery Rates by Population',
-				ID: 'RRP',
-				compareMethod(a, b) {
-					return (
-						b.All.recovered / b.All.population -
-						a.All.recovered / a.All.population
-					);
+				{
+					name: 'Recovery Rates by Population',
+					ID: 'RRP',
+					compareMethod(a, b) {
+						return (
+							b.All.recovered / b.All.population -
+							a.All.recovered / a.All.population
+						);
+					},
 				},
-			},
-			{
-				name: 'Death Rates by Total Infected',
-				ID: 'DRI',
-				compareMethod(a, b) {
-					return (
-						b.All.deaths / b.All.confirmed - a.All.deaths / a.All.confirmed
-					);
+				{
+					name: 'Death Rates by Total Infected',
+					ID: 'DRI',
+					compareMethod(a, b) {
+						return (
+							b.All.deaths / b.All.confirmed - a.All.deaths / a.All.confirmed
+						);
+					},
 				},
-			},
-			{
-				name: 'Death Rates by Population',
-				ID: 'DRP',
-				compareMethod(a, b) {
-					return (
-						b.All.deaths / b.All.population - a.All.deaths / a.All.population
-					);
+				{
+					name: 'Death Rates by Population',
+					ID: 'DRP',
+					compareMethod(a, b) {
+						return (
+							b.All.deaths / b.All.population - a.All.deaths / a.All.population
+						);
+					},
 				},
-			},
-		],
-		activeFilter: 'MI',
-	}),
+			],
+		};
+	},
 	methods: {
-		hideShowFilters() {
-			const filters = this.$refs.filters;
-			Array.from(filters.classList).includes('hide')
-				? filters.classList.remove('hide')
-				: filters.classList.add('hide');
+		toggleFilter() {
+			this.filterHide ? (this.filterHide = false) : (this.filterHide = true);
 		},
 		handleClick($event, filterID) {
 			this.activeFilter = filterID;
 			this.emitFilterType();
 
 			setTimeout(() => {
-				this.hideShowFilters();
+				this.toggleFilter();
 			}, 100);
 		},
 		emitFilterType() {

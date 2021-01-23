@@ -213,4 +213,10 @@ export default {
 		}
 	}
 }
+
+@media only screen and (min-width: 1280px) {
+	.venue-data {
+		grid-template-columns: 1fr 10fr 3fr;
+	}
+}
 </style>
