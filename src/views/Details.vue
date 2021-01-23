@@ -327,7 +327,7 @@ header {
 			left: 5px;
 			font-size: 1rem;
 			width: 210px;
-			padding: 10px 0;
+			padding: 5px 0;
 			border-radius: 10px;
 			display: flex;
 			justify-content: space-evenly;
@@ -345,7 +345,7 @@ header {
 			}
 
 			.btn-text {
-				margin: 0;
+				margin-left: 0;
 			}
 		}
 
