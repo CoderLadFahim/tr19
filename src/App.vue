@@ -43,7 +43,7 @@ body {
 	color: $grey;
 	font-family: $regular-font;
 	font-weight: 700;
-	margin-top: 25px;
+	margin-top: 10px;
 	.data {
 		font-family: $number-font;
 	}
