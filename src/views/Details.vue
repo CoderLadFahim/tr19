@@ -94,7 +94,7 @@ a.back-btn {
 	.arrow {
 		display: none;
 	}
-	position: absolute;
+	position: fixed;
 	background: #f1f1f1;
 	bottom: 0;
 	left: 0;
@@ -109,7 +109,7 @@ a.back-btn {
 	color: $navyblue;
 	font-weight: bolder;
 	transition: 200ms;
-
+	z-index: 99;
 	&:hover {
 		background-color: #fff;
 	}
@@ -157,7 +157,7 @@ header {
 	display: grid;
 	// border: 1px solid #fff;
 	width: 85%;
-	height: 83%;
+	height: 80%;
 	margin: 0 auto;
 	grid: {
 		template: {
