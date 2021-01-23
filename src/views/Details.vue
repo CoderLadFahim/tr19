@@ -91,25 +91,33 @@ export default {
 }
 
 a.back-btn {
-	.arrow {
-		display: none;
-	}
 	position: fixed;
-	background: #f1f1f1;
+	background: $purple;
 	bottom: 0;
 	left: 0;
 	right: 0;
-	font-size: 0.75rem;
 	width: 100%;
-	padding: 5px 0;
+	padding: 7px 0;
 	display: flex;
-	justify-content: space-evenly;
+	justify-content: center;
 	align-items: center;
 	text-decoration: none;
 	color: $navyblue;
 	font-weight: bolder;
 	transition: 200ms;
 	z-index: 99;
+
+	.arrow {
+		@include arrow('left', 0.65);
+		margin-bottom: 2px;
+	}
+
+	.btn-text {
+		color: #fff;
+		font-size: 0.8rem;
+		margin-left: 35px;
+	}
+
 	&:hover {
 		background-color: #fff;
 	}
@@ -179,9 +187,29 @@ header {
 	}
 }
 
-@media only screen and (min-height: 760px) {
+@media only screen and (min-width: 375px) {
 	header {
 		margin-bottom: 20px;
+	}
+}
+
+@media only screen and (min-width: 414px) {
+	a.back-btn .btn-text {
+		// padding: 20px 0;
+		font-size: 1rem;
+	}
+}
+
+@media only screen and (min-width: 414px) and (max-height: 896px) {
+	a.back-btn .btn-text {
+		padding: 5px 0;
+		font-size: 1.1rem;
+	}
+}
+
+@media only screen and (min-height: 760px) {
+	header {
+		margin-bottom: 25px;
 	}
 }
 
@@ -305,14 +333,19 @@ header {
 			justify-content: space-evenly;
 			background: none;
 			color: #fff;
-			// transition: none;
-			border: 1px solid #fff;
+			transition: 100ms;
+			// border: 1px solid #fff;
 			&:hover {
-				border-color: $yellow;
+				background-color: $purple;
+				border: none;
 			}
 
 			.arrow {
 				@include arrow('left', 0.5);
+			}
+
+			.btn-text {
+				margin: 0;
 			}
 		}
 
