@@ -1,19 +1,13 @@
-# tracker19
+# TR19
+## Global Coronavirus Tracker
 
-## Project setup
-```
-npm install
-```
+### Technologies used:
+  * VueJS
+  * Vuex (for state management)
+  * SASS (.scss syntx)
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+The application tracks the global state of COVID-19 by consuming data from a REST API mentioned below.
 
-### Compiles and minifies for production
-```
-npm run build
-```
+RESTful service used: https://mmediagroup.fr/covid-19
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+URL: https://tr19.netlify.app
