@@ -4,6 +4,7 @@
 ### Technologies used:
   * VueJS
   * Vuex (for state management)
+  * Vue Router
   * SASS (.scss syntx)
 
 The application tracks the global state of COVID-19 by consuming data from a REST API mentioned below.
